@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <v-app>
         <cabecalho/>
         <v-main>
             <v-container>
                 <router-view></router-view>
             </v-container>
         </v-main>
-    </div>
+    </v-app>
 </template>
 
 <script>
