@@ -2,7 +2,7 @@
     <v-app>
         <cabecalho/>
         <v-main>
-            <v-container>
+            <v-container fluid style="width: 85%">
                 <router-view></router-view>
             </v-container>
         </v-main>
@@ -14,6 +14,6 @@ import Header from './components/Header'
 
 export default {
   name: 'App',
-  components: {"cabecalho": Header}
+  components: {"cabecalho": Header},
 };
 </script>

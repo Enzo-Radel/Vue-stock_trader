@@ -5,6 +5,14 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+Vue.filter('firstToUpper', function(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1)
+})
+
+Vue.filter('valueInReal', function(value) {
+	return value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+})
+
 new Vue({
   vuetify,
   router,
