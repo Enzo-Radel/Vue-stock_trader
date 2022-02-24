@@ -27,19 +27,23 @@ export default new Vuex.Store({
 		portfolio: [
 			{
 				name: "apple",
-				qntd: 10,
+				value: 300,
+				qnt: 10,
 			},
 			{
 				name: "facebook",
-				qntd: 20,
+				value: 180,
+				qnt: 20,
 			},
 			{
 				name: "twitter",
-				qntd: 30,
+				value: 120,
+				qnt: 30,
 			},
 			{
 				name: "google",
-				qntd: 40,
+				value: 230,
+				qnt: 40,
 			},
 		],
 	},

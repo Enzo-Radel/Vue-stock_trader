@@ -1,10 +1,16 @@
 <template>
-    <h1>Portifolio</h1>
+    <v-row>
+        <stock v-for="(stock, index) in $store.state.portfolio" :key="index" :name="stock.name" :value="stock.value" :qnt="stock.qnt"/>
+    </v-row>
 </template>
 
 <script>
-export default {
+import Stock from './Stock.vue'
 
+export default {
+    components: {
+        "stock": Stock,
+    },
 }
 </script>
 
