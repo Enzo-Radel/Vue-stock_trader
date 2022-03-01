@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <stock v-for="(stock, index) in $store.state.portfolio" :key="index" :name="stock.name" :value="stock.value" :qnt="stock.qnt"/>
+        <stock v-for="(stock, index) in $store.state.portfolio" :key="index" :stock="stock"/>
     </v-row>
 </template>
 

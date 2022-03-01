@@ -3,18 +3,16 @@
 		<v-card>
 		<v-toolbar color="blue darken-3" dark>
 			<v-toolbar-title>
-				<strong>{{name | firstToUpper}} <small>(Preço: {{value | valueInReal}} | Quantidade: {{qnt}})</small></strong>
+				<strong>{{stock.name | firstToUpper}} <small>(Preço: {{stock.value | valueInReal}} | Quantidade: {{stock.qnt}})</small></strong>
 			</v-toolbar-title>
 		</v-toolbar>
 			<v-card-text>
-				<v-form v-model="valid" ref="form" lazy-validation>
-					<v-text-field type="number" label="Quantidade" v-model="qntSell" :rules="rules" required>
-						<template v-slot:append-outer>
-							<v-btn v-if="valid" small>Vender</v-btn>
-							<v-btn v-else small disabled>Indisponível</v-btn>
-						</template>
-					</v-text-field>
-				</v-form>
+				<v-text-field type="number" label="Quantidade" v-model.number="qntStocks" :rules="rules" required>
+					<template v-slot:append-outer>
+						<v-btn v-if="qntStocks > 0" small>Vender</v-btn>
+						<v-btn v-else small disabled>Indisponível</v-btn>
+					</template>
+				</v-text-field>
 			</v-card-text>
 
 		</v-card>
@@ -23,19 +21,16 @@
 </template>
 
 <script>
-	import { validationMixin } from 'vuelidate'
-	import { required, maxLength, email } from 'vuelidate/lib/validators'
+	// import { validationMixin } from 'vuelidate'
+	// import { required, maxLength, email } from 'vuelidate/lib/validators'
 	export default {
 		props: {
-			name: String,
-            value: Number,
-			qnt: Number,
+			stock: Object,
 		},
 		data() {
 			return {
-				valid: true,
-				qntSell: 0,
-				rules: [v => v <= this.qnt || 'Quantidade Indisponível'],
+				qntStocks: 1,
+				rules: [v => v <= this.stock.qnt && v > 0 || 'Quantidade Indisponível'],
 			}
 		}
 	}
